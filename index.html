@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+    <div class="layout">
+        <div id="drag-container" class="draggable-container">
+            <div id="draggable" class="draggable">
+                该节点可拖拉
+            </div>
+        </div>
+        <div id="drop-target">
+            <div class="draggable">0</div>
+            <div class="draggable">1</div>
+            <div class="draggable">2</div>
+            <div class="draggable">3</div>
+            <div class="draggable">4</div>
+            <div class="draggable">5</div>
+            <div class="draggable">6</div>
+            <div class="draggable">7</div>
+            <div class="draggable">8</div>
+            <div class="draggable">9</div>
+            <div class="draggable">10</div>
+            <div class="draggable">11</div>
+            <div class="draggable">12</div>
+            <div class="draggable">13</div>
+            <div class="draggable">14</div>
+            <div class="draggable">15</div>
+            <div class="draggable">16</div>
+            <div class="draggable">17</div>
+            <div class="draggable">18</div>
+            <div class="draggable">19</div>
+            <div class="draggable">20</div>
+            <div class="draggable">21</div>
+            <div class="draggable">21</div>
+            <div class="draggable">22</div>
+            <div class="draggable">23</div>
+            <div class="draggable">24</div>
+            <div class="draggable">25</div>
+            <div class="draggable">26</div>
+            <div class="draggable">27</div>
+            <div class="draggable">28</div>
+            <div class="draggable">29</div>
+            <div class="draggable">30</div>
+        </div>
+    </div>
+    <script type="module">
+        import { Draggable } from "./draggable.js";
+        import { Droppable } from "./droppable.js";
+        import { Sortable } from "./sortable.js";
+        const draggable = document.getElementById('draggable');
+        new Draggable(draggable);
+        const dropTarget = document.getElementById('drop-target');
+        new Droppable(dropTarget);
+        new Sortable(dropTarget);
+    </script>
+</body>
+<style>
+    .layout {
+        height: calc(100vh - 22px);
+        display: flex;
+        border: 3px solid #CCCCCC;
+    }
+    .draggable-container {
+        flex: 1;
+        border-right: 3px solid #CCCCCC;
+    }
+    .draggable {
+        height: 60px;
+        text-align: center;
+        line-height: 60px;
+        background: #CCCCCC;
+        margin: 3px;
+    }
+
+    #drop-target {
+        flex: 1;
+        position: relative;
+        overflow-x: auto;
+    }
+
+    .drop-ref {
+        width: 100%;
+        height: 60px;
+        margin: 3px;
+        border: 2px dashed #00d9ff;
+        box-sizing: border-box;
+    }
+
+    .scroll-ref {
+        width: 100%;
+        height: 60px;
+        box-sizing: border-box;
+        border: 2px dashed #00d9ff;
+        background: #00d9ff;
+    }
+
+    .forbidden-child-pointer-events {
+        pointer-events: none;
+    }
+
+    .forbidden-child-pointer-events * {
+        pointer-events: all;
+    }
+</style>
+</html>
